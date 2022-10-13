@@ -1,0 +1,15 @@
+/*.htaccess
+/styles/*.png
+/styles/*.gif
+/styles/*.svg
+/styles/images/common/*.ico
+/styles/images/contact/*.jpg
+/styles/file/*.pdf
+/styles/fonts/fontello/*.json
+/styles/fonts/fontello/*.txt
+/styles/fonts/fontello/font/*.eot
+/styles/fonts/fontello/font/*.ttf
+/styles/fonts/fontello/font/*.woff
+/styles/fonts/fontello/font/*.woff2
+/styles/mixin/*.scss
+/styles/*.css

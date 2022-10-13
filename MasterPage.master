@@ -1,0 +1,96 @@
+﻿<!--
+//
+//                       _oo0oo_
+//                      o8888888o
+//                      88" . "88
+//                      (| -_- |)
+//                      0\  =  /0
+//                    ___/`---'\___
+//                  .' \\|     |// '.
+//                 / \\|||  :  |||// \
+//                / _||||| -:- |||||- \
+//               |   | \\\  -  /// |   |
+//               | \_|  ''\---/''  |_/ |
+//               \  .-\__  '-'  ___/-. /
+//             ___'. .'  /--.--\  `. .'___
+//          ."" '<  `.___\_<|>_/___.' >' "".
+//         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+//         \  \ `_.   \_ __\ /__ _/   .-` /  /
+//     =====`-.____`.___ \_____/___.-`___.-'=====
+//                       `=---='
+//
+//
+//     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//
+//               佛祖保佑         永無bug
+//
+//**************************************************************************
+-->
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<%@ Register Src="~/UserControl/Menu.ascx" TagName="Menu" TagPrefix="uc1" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title></title>
+    <link href="DataTables/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="bootstrap-chosen-master/bootstrap-chosen.css" rel="stylesheet" />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../chosen/chosen.jquery.js"></script>
+    <script type="text/javascript">
+        function cs(form) {
+            re = /[\$&%<>\+,\/:\'\";=\?\\]/g;
+            if (re.test(form.value)) {
+                form.value = form.value.replace(re, '');
+            }
+        };
+
+        function txt(form) {
+            re = /[\$&%<>\\/\'\"]/g;
+            if (re.test(form.value)) {
+                form.value = form.value.replace(re, '');
+            }
+        };
+
+        function int(form) {
+            re = /[^\d]/g;
+            if (re.test(form.value)) {
+                form.value = form.value.replace(re, '');
+            }
+        };
+    </script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <%-------------------------------------------------------------------------%>
+        <table style="width: 100%;">
+            <tr>
+                <td>
+                    <uc1:Menu ID="UserMenu" runat="server" />
+                </td>
+            </tr>
+        </table>
+        <%-------------------------------------------------------------------------%>
+        <table style="width: 100%;">
+            <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+        </table>
+        <%-------------------------------------------------------------------------%>
+        <asp:ContentPlaceHolder ID="head2" runat="server"></asp:ContentPlaceHolder>
+        <%-------------------------------------------------------------------------%>
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:Timer ID="Timer1" runat="server" OnTick="Timer1_Tick" Interval="30000"></asp:Timer>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <%-------------------------------------------------------------------------%>
+    </form>
+</body>
+</html>
